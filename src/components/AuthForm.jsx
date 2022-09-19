@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { useLoginMutation, useRegisterMutation } from '../store/api/authApi'
+import { useDispatch } from 'react-redux'
+import { login } from '../store/reducer/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 const initialUserForm = {
   username: '',
@@ -8,8 +11,11 @@ const initialUserForm = {
 }
 
 const AuthForm = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [regFn, { error: regError }] = useRegisterMutation()
   const [loginFn, { error: loginError }] = useLoginMutation()
+
   const [isLoginForm, setIsLoginForm] = useState(false)
   const [userForm, setUserForm] = useState(initialUserForm)
 
@@ -21,7 +27,9 @@ const AuthForm = () => {
       loginFn({ identifier: username, password })
         .then(res => {
           if (!res.error) {
-            console.log('success')
+            const { jwt, user } = res.data
+            dispatch(login({ token: jwt, user }))
+            navigate('/', { replace: true })
           }
         })
     } else {
