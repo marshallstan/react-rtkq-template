@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRegisterMutation } from '../store/api/authApi.js'
 
 const initialUserForm = {
   username: '',
@@ -7,21 +8,31 @@ const initialUserForm = {
 }
 
 const AuthForm = () => {
+  const [regFn, { error: regError }] = useRegisterMutation()
   const [isLoginForm, setIsLoginForm] = useState(false)
   const [userForm, setUserForm] = useState(initialUserForm)
 
   const submitHandler = e => {
     e.preventDefault()
 
+    const { username, email, password } = userForm
     if (isLoginForm) {
       console.log('login')
     } else {
-      console.log('register')
+      regFn({ username, email, password })
+        .then(res => {
+          if (!res.error) {
+            setIsLoginForm(true)
+            setUserForm({ ...initialUserForm })
+          }
+        })
     }
   }
+
   const changeForm = (e, key) => {
     setUserForm({ ...userForm, [key]: e.target.value })
   }
+
   const changeStatus = e => {
     e.preventDefault()
     setIsLoginForm(!isLoginForm)
@@ -29,6 +40,9 @@ const AuthForm = () => {
 
   return (
     <div>
+      <p style={{ color: 'red' }}>
+        {regError && regError.data?.error?.message}
+      </p>
       <h2>{isLoginForm ? '登录' : '注册'}</h2>
       <form onSubmit={submitHandler}>
         <div>
