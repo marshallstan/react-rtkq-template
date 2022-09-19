@@ -1,8 +1,11 @@
+import WrapperRoutes from './routes'
+import Layout from './components/Layout'
+
 function App() {
   return (
-    <div className="App">
-      APP
-    </div>
+    <Layout>
+      <WrapperRoutes />
+    </Layout>
   )
 }
 
