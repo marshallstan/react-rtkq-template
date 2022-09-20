@@ -2,6 +2,7 @@ import { useRoutes } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 import ProfilePage from '../pages/ProfilePage'
 import AuthPage from '../pages/AuthPage'
+import NeedAuth from '../components/NeedAuth'
 
 const routesList = [
   {
@@ -10,7 +11,7 @@ const routesList = [
   },
   {
     path: '/profile',
-    element: <ProfilePage />
+    element: <NeedAuth><ProfilePage /></NeedAuth>
   },
   {
     path: '/auth-form',
