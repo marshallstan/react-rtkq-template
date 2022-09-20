@@ -1,10 +1,9 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react'
+import { createApi } from '@reduxjs/toolkit/dist/query/react'
+import axiosBaseQuery from './baseQuery'
 
 const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:1337/api/'
-  }),
+  baseQuery: axiosBaseQuery(),
   endpoints(build) {
     return {
       register: build.mutation({
@@ -12,7 +11,7 @@ const authApi = createApi({
           return {
             url: 'auth/local/register',
             method: 'post',
-            body: user
+            data: user
           }
         }
       }),
@@ -21,7 +20,7 @@ const authApi = createApi({
           return {
             url: 'auth/local',
             method: 'post',
-            body: user
+            data: user
           }
         }
       })

@@ -16,7 +16,7 @@ const MainMenu = () => {
           !auth.isLogin
             ? (
               <li>
-                <Link to="/auth-form">登录/注册</Link>
+                <Link to="/login">登录/注册</Link>
               </li>
             )
             : (

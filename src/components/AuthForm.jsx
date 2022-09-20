@@ -28,7 +28,7 @@ const AuthForm = () => {
     if (isLoginForm) {
       loginFn({ identifier: username, password })
         .then(res => {
-          if (!res.error) {
+          if (res.data) {
             const { jwt, user } = res.data
             dispatch(login({ token: jwt, user }))
             navigate(from, { replace: true })
@@ -37,7 +37,7 @@ const AuthForm = () => {
     } else {
       regFn({ username, email, password })
         .then(res => {
-          if (!res.error) {
+          if (res.data) {
             setIsLoginForm(true)
             setUserForm({ ...initialUserForm })
           }
@@ -57,10 +57,10 @@ const AuthForm = () => {
   return (
     <div>
       <p style={{ color: 'red' }}>
-        {regError && regError.data?.error?.message}
+        {regError && regError.message}
       </p>
       <p style={{ color: 'red' }}>
-        {loginError && loginError.data?.error?.message}
+        {loginError && loginError.message}
       </p>
       <h2>{isLoginForm ? '登录' : '注册'}</h2>
       <form onSubmit={submitHandler}>

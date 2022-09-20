@@ -14,7 +14,7 @@ const routesList = [
     element: <NeedAuth><ProfilePage /></NeedAuth>
   },
   {
-    path: '/auth-form',
+    path: '/login',
     element: <AuthPage />
   }
 ]

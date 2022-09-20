@@ -10,7 +10,7 @@ function NeedAuth({ children }) {
       ? children
       : (
         <Navigate
-          to="/auth-form"
+          to="/login"
           replace
           state={{
             preLocation: location.pathname
