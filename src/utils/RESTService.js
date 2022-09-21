@@ -1,7 +1,7 @@
 import axios from 'axios'
 import history from './history'
-import store from '../store'
-import { logout } from '../store/reducer/authSlice'
+import store from '@/store'
+import { logout } from '@/store/reducer/authSlice'
 
 let baseURL = ''
 if (process.env.NODE_ENV === 'development') {

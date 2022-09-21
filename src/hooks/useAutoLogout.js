@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { logout } from '../store/reducer/authSlice'
+import { logout } from '@/store/reducer/authSlice'
 
 const useAutoLogout = () => {
   const auth = useSelector(state => state.auth)

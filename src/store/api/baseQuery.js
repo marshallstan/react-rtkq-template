@@ -1,4 +1,4 @@
-import { RESTService } from '../../utils'
+import { RESTService } from '@/utils'
 
 const axiosBaseQuery = ({ baseUrl } = { baseUrl: '' }) => {
   return (args) => {

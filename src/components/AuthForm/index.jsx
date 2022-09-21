@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { useLoginMutation, useRegisterMutation } from '../../store/api/authApi'
+import { useLoginMutation, useRegisterMutation } from '@/store/api/authApi'
 import { useDispatch } from 'react-redux'
-import { login } from '../../store/reducer/authSlice'
+import { login } from '@/store/reducer/authSlice'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const initialUserForm = {
