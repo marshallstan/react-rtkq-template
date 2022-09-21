@@ -1,6 +1,6 @@
-import WrapperRoutes from '@/routes'
-import Layout from '@/components/Layout'
-import useAutoLogout from '@/hooks/useAutoLogout'
+import WrapperRoutes from './routes'
+import Layout from './components/Layout'
+import useAutoLogout from './hooks/useAutoLogout'
 
 function App() {
   useAutoLogout()

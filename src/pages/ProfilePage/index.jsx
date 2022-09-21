@@ -1,7 +1,7 @@
 import Profile from '@/components/Profile'
 // import {
 //   useGetStudentsQuery
-// } from '../../store/api/studentApi'
+// } from '@/store/api/studentApi'
 
 const ProfilePage = () => {
   // const { data: stuList, isSuccess } = useGetStudentsQuery()
