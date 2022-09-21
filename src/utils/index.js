@@ -1,5 +1,5 @@
-import RESTService from './RESTService.js'
-import history from './history.js'
+import RESTService from './RESTService'
+import history from './history'
 
 export {
   RESTService,

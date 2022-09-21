@@ -1,4 +1,4 @@
-import MainMenu from './MainMenu.jsx'
+import MainMenu from '../MainMenu'
 
 const Layout = ({ children }) => {
   return (

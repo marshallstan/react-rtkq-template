@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from '../store/reducer/authSlice'
+import { logout } from '../../store/reducer/authSlice'
 
 const MainMenu = () => {
   const dispatch = useDispatch()
